@@ -4,8 +4,8 @@ from easydict import EasyDict
 CONF = EasyDict()
 
 # BASE PATH
-CONF.ROOT = "/home/davech2y/Pointnet2.ScanNet" # TODO change this
-CONF.SCANNET_DIR =  "/mnt/canis/Datasets/ScanNet/public/v2/scans" # TODO change this
+CONF.ROOT = "/home/quezizhengcodes/point2-scannets/Pointnet2.ScanNet" # TODO change this
+CONF.SCANNET_DIR = "/home/cbw/dataset/ScanNetV2/scans" # TODO change this
 CONF.SCANNET_FRAMES_ROOT = "/home/davech2y/frames_square/" # TODO change this
 CONF.PROJECTION = "/home/davech2y/multiview_projection_pointnet" # TODO change this
 CONF.ENET_FEATURES_ROOT = "/home/davech2y/enet_features" # TODO change this
