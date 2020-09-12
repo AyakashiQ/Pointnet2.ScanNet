@@ -4,7 +4,7 @@ from easydict import EasyDict
 CONF = EasyDict()
 
 # BASE PATH
-CONF.ROOT = "/home/quezizhengcodes/point2-scannets/Pointnet2.ScanNet" # TODO change this
+CONF.ROOT = "/home/quezizheng/codes/point2-scannets/Pointnet2.ScanNet" # TODO change this
 CONF.SCANNET_DIR = "/home/cbw/dataset/ScanNetV2/scans" # TODO change this
 CONF.SCANNET_FRAMES_ROOT = "/home/davech2y/frames_square/" # TODO change this
 CONF.PROJECTION = "/home/davech2y/multiview_projection_pointnet" # TODO change this
