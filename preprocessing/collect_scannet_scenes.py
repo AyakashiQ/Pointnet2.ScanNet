@@ -18,7 +18,7 @@ def collect_one_scene_data_label(scene_name, out_filename):
     # Over-segmented segments: maps from segment to vertex/point IDs
     data_folder = os.path.join(CONF.SCANNET_DIR, scene_name)
     mesh_seg_filename = os.path.join(data_folder, '%s_vh_clean_2.0.010000.segs.json'%(scene_name))
-    print(mesh_seg_filename)
+    # print(mesh_seg_filename)
     with open(mesh_seg_filename, 'r') as jsondata:
         d = json.load(jsondata)
         seg = d['segIndices']
@@ -38,15 +38,15 @@ def collect_one_scene_data_label(scene_name, out_filename):
     labels = []
     # annotation_filename = os.path.join(data_folder, '%s.aggregation.json'%(scene_name))
     annotation_filename = os.path.join(data_folder, '%s_vh_clean.aggregation.json'%(scene_name))
-    print(annotation_filename)
+    # print(annotation_filename)
     with open(annotation_filename) as jsondata:
         d = json.load(jsondata)
         for x in d['segGroups']:
             instance_segids.append(x['segments'])
             labels.append(x['label'])
     
-    print(len(instance_segids))
-    print(labels)
+    #print(len(instance_segids))
+    #print(labels)
     
     # Each instance's points
     instance_points_list = []
@@ -76,6 +76,7 @@ def collect_one_scene_data_label(scene_name, out_filename):
         data = data[choices]
 
     print("shape of subsampled scene data: {}".format(data.shape))
+    print(out_filename)
     np.save(out_filename, data)
 
 if __name__=='__main__':
