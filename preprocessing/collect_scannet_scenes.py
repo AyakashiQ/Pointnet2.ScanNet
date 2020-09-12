@@ -19,7 +19,7 @@ def collect_one_scene_data_label(scene_name, out_filename):
     data_folder = os.path.join(CONF.SCANNET_DIR, scene_name)
     mesh_seg_filename = os.path.join(data_folder, '%s_vh_clean_2.0.010000.segs.json'%(scene_name))
     print(mesh_seg_filename)
-    with open(mesh_seg_filename) as jsondata:
+    with open(mesh_seg_filename, 'r') as jsondata:
         d = json.load(jsondata)
         seg = d['segIndices']
         print(len(seg))
