@@ -18,7 +18,7 @@ def collect_one_scene_data_label(scene_name, out_filename):
     # Over-segmented segments: maps from segment to vertex/point IDs
     data_folder = os.path.join(CONF.SCANNET_DIR, scene_name)
     mesh_seg_filename = os.path.join(data_folder, '%s_vh_clean_2.0.010000.segs.json'%(scene_name))
-    #print mesh_seg_filename
+    print(mesh_seg_filename)
     with open(mesh_seg_filename) as jsondata:
         d = json.load(jsondata)
         seg = d['segIndices']
@@ -82,23 +82,23 @@ if __name__=='__main__':
     os.makedirs(CONF.PREP_SCANS, exist_ok=True)
     
     for i, scene_name in enumerate(CONF.SCENE_NAMES):
-        try:
-            start = time.time()
-            out_filename = scene_name+'.npy' # scene0000_00.npy
-            collect_one_scene_data_label(scene_name, os.path.join(CONF.PREP_SCANS, out_filename))
-            
-            # report
-            num_left = len(CONF.SCENE_NAMES) - i - 1
-            eta = get_eta(start, time.time(), 0, num_left)
-            print("preprocessed {}, {} left, ETA: {}h {}m {}s".format(
-                scene_name,
-                num_left,
-                eta["h"],
-                eta["m"],
-                eta["s"]
-            ))
+        #try:
+        start = time.time()
+        out_filename = scene_name+'.npy' # scene0000_00.npy
+        collect_one_scene_data_label(scene_name, os.path.join(CONF.PREP_SCANS, out_filename))
 
-        except Exception as e:
-            print(scene_name+'ERROR!!')
+        # report
+        num_left = len(CONF.SCENE_NAMES) - i - 1
+        eta = get_eta(start, time.time(), 0, num_left)
+        print("preprocessed {}, {} left, ETA: {}h {}m {}s".format(
+            scene_name,
+            num_left,
+            eta["h"],
+            eta["m"],
+            eta["s"]
+        ))
+
+        #except Exception as e:
+        #    print(scene_name+'ERROR!!')
 
     print("done!")
